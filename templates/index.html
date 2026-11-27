@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080b16">
+<meta name="description" content="NeuroQuest is a progressive brain-training game for memory, focus, logic, calculation and reaction practice.">
+<title>NeuroQuest — Train Your Mind</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="ambient a1"></div><div class="ambient a2"></div>
+<header class="topbar"><a class="brand" href="/"><span class="brandmark">N</span><span>NEURO<span class="accent">QUEST</span></span></a>
+ <div class="top-right"><span id="userLabel" class="user-label">Guest mode</span><button id="soundBtn" class="icon-btn" title="Toggle sound" aria-label="Toggle sound">♫</button><button id="accountBtn" class="btn btn-outline">Sign in</button></div>
+</header>
+<main class="wrap">
+<section id="hero" class="hero"><div class="eyebrow"><span class="pulse"></span> YOUR DAILY MENTAL WORKOUT</div>
+ <h1>Make your mind<br><span class="gradient">your strongest skill.</span></h1>
+ <p class="sub">Train memory, focus, logic and reaction with progressive challenges. Build a practice streak, earn XP and track your journey.</p>
+ <div class="hero-actions"><button class="btn btn-primary" id="startBtn">Explore training <span>→</span></button><button class="quick-btn" id="heroLeaderboard">🏆 Global leaderboard</button><span class="micro">60 challenge variations · 5 training modes</span></div>
+ <div class="stats-strip"><div><b>60</b><small>CHALLENGE VARIATIONS</small></div><div><b>05</b><small>TRAINING MODES</small></div><div><b>∞</b><small>ROOM TO PROGRESS</small></div></div>
+</section>
+<section id="dashboard" class="dashboard hidden"><div class="section-head"><div><div class="eyebrow">PLAYER PROFILE</div><h2>Welcome back, <span id="dashName">Player</span></h2></div><div class="level-pill">LEVEL <b id="levelNum">1</b></div></div>
+ <div class="profile-grid"><div class="metric"><small>TOTAL XP</small><strong id="xpNum">0</strong><div class="progress"><i id="xpBar"></i></div><small id="xpNext">0 / 100 XP to next level</small></div>
+ <div class="metric"><small>ROUNDS CLEARED</small><strong id="roundNum">0</strong><small>Every round counts</small></div>
+ <div class="metric"><small>CURRENT STREAK</small><strong><span id="streakNum">0</span> 🔥</strong><small>Best: <span id="longestStreak">0</span> days</small></div></div>
+ <div class="quick-actions"><button class="quick-btn" id="analyticsBtn">📈 My analytics</button><button class="quick-btn" id="leaderboardBtn">🏆 Global leaderboard</button><button class="quick-btn" id="achievementsBtn">🎖️ Achievements</button><button class="quick-btn hidden" id="adminBtn">🛡️ Admin dashboard</button></div>
+</section>
+<section id="dailyCard" class="daily-card hidden"><div><div class="eyebrow">TODAY'S SPECIAL CHALLENGE</div><h2>Daily Brain Test</h2><p>Five quick rounds, five different skills. Complete today's test to earn a bonus 40 XP.</p><small id="dailyStatus">A new test is ready.</small></div><button id="dailyBtn" class="btn btn-primary">Start daily test →</button></section>
+<section id="modes" class="modes"><div class="section-head"><div><div class="eyebrow">CHOOSE YOUR TRAINING</div><h2>Pick a challenge</h2></div><span class="micro">Difficulty rises as you progress</span></div>
+ <div class="mode-grid">
+ <button class="mode-card" data-game="memory"><span class="mode-icon purple">◈</span><span class="mode-tag">MEMORY</span><b>Sequence Recall</b><small>Remember increasingly long patterns.</small><span class="mode-foot">Train recall <i>↗</i></span></button>
+ <button class="mode-card" data-game="reaction"><span class="mode-icon orange">⚡</span><span class="mode-tag">REACTION</span><b>Lightning Reflex</b><small>React the moment the signal appears.</small><span class="mode-foot">Train speed <i>↗</i></span></button>
+ <button class="mode-card" data-game="logic"><span class="mode-icon blue">⌘</span><span class="mode-tag">LOGIC</span><b>Number Logic</b><small>Crack number patterns under pressure.</small><span class="mode-foot">Train reasoning <i>↗</i></span></button>
+ <button class="mode-card" data-game="focus"><span class="mode-icon green">◎</span><span class="mode-tag">FOCUS</span><b>Focus Filter</b><small>Spot the target among distractions.</small><span class="mode-foot">Train attention <i>↗</i></span></button>
+ <button class="mode-card" data-game="math"><span class="mode-icon pink">∑</span><span class="mode-tag">MENTAL MATH</span><b>Rapid Calculation</b><small>Solve harder calculations quickly.</small><span class="mode-foot">Train calculation <i>↗</i></span></button>
+ </div></section>
+<section id="gamePanel" class="game-panel hidden"><div class="game-top"><button class="back-btn" id="backBtn">← All challenges</button><div class="round-info"><span id="gameMode">MEMORY</span><b>ROUND <span id="roundNumGame">1</span></b></div><div class="streak">BEST LVL <b id="gameBest">1</b></div></div>
+ <div class="game-card"><div class="game-progress"><i id="roundProgress"></i></div><div id="gameContent" class="game-content"></div></div></section>
+<section id="leaderboardPanel" class="data-panel hidden"><div class="panel-head"><div><div class="eyebrow">WORLDWIDE RANKINGS</div><h2>Global leaderboard</h2></div><button class="back-btn panelBack">← Back</button></div><div id="leaderboardContent" class="table-wrap">Loading rankings…</div></section>
+<section id="analyticsPanel" class="data-panel hidden"><div class="panel-head"><div><div class="eyebrow">YOUR TRAINING HISTORY</div><h2>Performance analytics</h2></div><button class="back-btn panelBack">← Back</button></div><div id="analyticsContent">Sign in to view your stats.</div></section>
+<section id="achievementsPanel" class="data-panel hidden"><div class="panel-head"><div><div class="eyebrow">MILESTONES & REWARDS</div><h2>Achievements</h2></div><button class="back-btn panelBack">← Back</button></div><div id="achievementContent" class="achievement-grid"></div></section>
+<section id="adminPanel" class="data-panel hidden"><div class="panel-head"><div><div class="eyebrow">RESTRICTED AREA</div><h2>Admin dashboard</h2></div><button class="back-btn panelBack">← Back</button></div><div id="adminContent">Loading admin data…</div></section>
+<section class="how"><div class="eyebrow">BUILT FOR CONSISTENCY</div><h2>Small rounds. <span class="gradient">Big challenges.</span></h2><div class="how-grid"><div><b>01 / Practice</b><p>Choose a skill and complete a focused mini-game.</p></div><div><b>02 / Progress</b><p>Challenges become more demanding as levels rise.</p></div><div><b>03 / Continue</b><p>Your XP, streak, sessions and achievements stay saved to your account.</p></div></div></section>
+<footer>NEUROQUEST <span>·</span> TRAIN WITH INTENTION <span>·</span> A PRACTICE GAME, NOT A MEDICAL TOOL</footer>
+</main>
+<div id="authModal" class="modal hidden"><div class="modal-card"><button class="close" id="closeModal">×</button><div class="eyebrow">YOUR PROGRESS, SAVED</div><h2 id="authTitle">Welcome back</h2><p class="modal-sub">Use a username and password to save your training journey.</p><div class="tabs"><button class="tab active" data-tab="login">Sign in</button><button class="tab" data-tab="register">Create account</button></div><form id="authForm"><label for="username">Username</label><input id="username" minlength="3" maxlength="24" autocomplete="username" required placeholder="Your username"><label for="password">Password</label><input id="password" type="password" minlength="8" maxlength="128" autocomplete="current-password" required placeholder="At least 8 characters"><button class="btn btn-primary full" type="submit" id="authSubmit">Sign in →</button><p id="authError" class="error" role="status"></p></form></div></div>
+<script src="/static/game.js" defer></script>
+</body></html>
